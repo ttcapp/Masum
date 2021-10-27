@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MyApp());
 }
-String imgsrc1="https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510_960_720.jpg";
+var imigesrci="https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510_960_720.jpg";
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
+      home:MyHomePage(
+      ),
     );
   }
 }
@@ -24,47 +26,39 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    double height=MediaQuery.of(context).size.height;
-    double width=MediaQuery.of(context).size.width;
+    double height= MediaQuery.of(context).size.height;
+    double width= MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("(My FiRsT ApP)",style: TextStyle(
-          fontSize: 29,fontWeight: FontWeight.bold,color: Colors.red,
-        ),),
+        title: Text("My First App"),
       ),
-      body:Center(
-        child: Container(
-          height: height,
-          width: width,
-          color: Colors.amber,
-          child: Column(
-            children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text("My love Bangladesh",style: TextStyle(
-                  fontSize: 35,fontWeight: FontWeight.bold,
-                  color: Colors.red,
+      body: Container(
+        height: height/1,
+        width: width/1,
+        color: Colors.red ,
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: [
+                Text("this is my app",
+                  style: TextStyle(fontSize: 50,fontWeight: FontWeight.bold,
+                    backgroundColor: Colors.black,color: Colors.pinkAccent,
+                  ),
                 ),
-                ),
-              ),
-              Text("My love Bangladesh",style: TextStyle(
-                fontSize: 45,fontWeight: FontWeight.bold,
-                color: Colors.red,
-              ),
-              ),
-              Container(
-                height: height/2,
-                  width: width/1,
-                  child: Image.network(imgsrc1)
-              ),
+                Image.asset("assets/image/image.jpg"),
+                Image.asset("assets/image/image1.jpeg"),
+                Image.asset("assets/image/images2.jpg"),
+                Image.asset("assets/image/images3.jpg"),
+                Image.asset("assets/image/images4.jpg"),
 
+                Image.network(imigesrci),
 
-            ],
+              ],
+            ),
           ),
         ),
-      )
+      ),
     );
   }
 }
-
